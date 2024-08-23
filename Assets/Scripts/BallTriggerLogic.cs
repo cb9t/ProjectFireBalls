@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class BallTriggerLogic : MonoBehaviour
 {
-    public Action Bonus;
-    public Action WinGame;
+    public static Action Bonus;
+    public static Action WinGame;
 
     [SerializeField] private LayerMask _maintower;
     [SerializeField] private LayerMask _lastTower;
