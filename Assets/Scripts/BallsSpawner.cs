@@ -7,6 +7,7 @@ using UnityEngine;
 public class BallsSpawner : MonoBehaviour
 {
     public Action LoseGame;
+    public Action<int> CountBall;
 
     [SerializeField] private Rigidbody _ballPrefab;
     [SerializeField] private Transform _ballSpawnPoint;
@@ -50,6 +51,7 @@ public class BallsSpawner : MonoBehaviour
                 _currentBall = null;
                 _readyForShoot = false;
                 StartCoroutine(TimePerSpawn());
+                CountBall?.Invoke(_currentBallsCount);
 
                 _currentBallsCount--;
             }

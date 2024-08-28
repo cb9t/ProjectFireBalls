@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -39,15 +40,23 @@ public class UIManager : MonoBehaviour
     
     [SerializeField] private BallsSpawner _ballsSpawner;
     [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private TextMeshProUGUI _bonusCountText;
+    [SerializeField] private int _bonusCountMax;
+    [SerializeField] private int _ballCountMinForStar;
+    [SerializeField] private RectTransform[] _stars;
 
     private bool _isPause;
-    private int _bonusCount;
-
+    private int _bonusCountCurrent;
+    private int _starsCount;
+    private int _ballCountCurrent;
     private void Awake()
     {
         BallTriggerLogic.Bonus += Bonus;
         BallTriggerLogic.WinGame += WinGame;
         _ballsSpawner.LoseGame += LoseGame;
+        _ballsSpawner.CountBall += BallCount;
+
+        BonusCount();
     }
     private void OnEnable()
     {
@@ -115,12 +124,12 @@ public class UIManager : MonoBehaviour
     private void NextLVL()
     {
         // SceneManager.LoadScene();
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
     private void MainManu()
     {
         // SceneManager.LoadScene();
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
     }
     private void SoundsToggle(bool isSound)
     {
@@ -133,16 +142,36 @@ public class UIManager : MonoBehaviour
     }
     private void Bonus()
     {
-        _bonusCount++;
+        _bonusCountCurrent++;
+        BonusCount();
     }
     private void WinGame()
     {
         _screenWin.gameObject.SetActive(true);
         Time.timeScale = 0f;
+
+        _starsCount++;
+        if (_bonusCountCurrent == _bonusCountMax) _starsCount++;
+        if (_ballCountCurrent >= _ballCountMinForStar) _starsCount++;
+
+        for (int i = 0; i < _stars.Length; i++)
+        {
+            if (i < _starsCount) _stars[i].gameObject.SetActive(true);
+        }
     }
     private void LoseGame()
     {
         _screenLose.gameObject.SetActive(true);
         Time.timeScale = 0f;
+    }
+    private void BonusCount()
+    {
+        var bonusCountCurrent = _bonusCountCurrent.ToString();
+        var bonusCountMax = _bonusCountMax.ToString();
+        _bonusCountText.text = bonusCountCurrent + "/" + bonusCountMax;
+    }
+    private void BallCount(int ballCount)
+    {
+        _ballCountCurrent = ballCount;
     }
 }
