@@ -3087,7 +3087,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/3
+  m_text: -/-
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4523,7 +4523,7 @@ MonoBehaviour:
   _lerpValue: 0.2
   _speed: 10
   _timeDelay: 0.5
-  _maxBallsCount: 8
+  _maxBallsCount: 16
   _bonusCount: {fileID: 186742315}
 --- !u!1 &1076889576
 GameObject:
@@ -6433,8 +6433,8 @@ MonoBehaviour:
   _ballsSpawner: {fileID: 1062967842}
   _audioMixer: {fileID: 0}
   _bonusCountText: {fileID: 708329503}
-  _bonusCountMax: 1
-  _ballCountMinForStar: 2
+  _bonusCountMax: 3
+  _ballCountMinForStar: 4
   _stars:
   - {fileID: 323846189}
   - {fileID: 789701519}
@@ -7714,9 +7714,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnList:
-  - {fileID: 4120292668498991773, guid: 757284d8f94449343b589ed5904f5f5d, type: 3}
   - {fileID: 4593793349728470858, guid: 4419e7c423387164bab8633b119dea63, type: 3}
+  - {fileID: 4593793349728470858, guid: 4419e7c423387164bab8633b119dea63, type: 3}
+  - {fileID: 4120292668498991773, guid: 299b926618be399418445d493e3aea59, type: 3}
+  - {fileID: 4120292668498991773, guid: 757284d8f94449343b589ed5904f5f5d, type: 3}
+  - {fileID: 4120292668498991773, guid: 67c0b611162faef428cf4dca87930177, type: 3}
+  - {fileID: 4593793349728470858, guid: 4419e7c423387164bab8633b119dea63, type: 3}
+  - {fileID: 4593793349728470858, guid: 4419e7c423387164bab8633b119dea63, type: 3}
+  - {fileID: 4120292668498991773, guid: 757284d8f94449343b589ed5904f5f5d, type: 3}
   - {fileID: 4120292668498991773, guid: 3db2e879792e8374b9da7a35082ca1ac, type: 3}
+  - {fileID: 4593793349728470858, guid: 4419e7c423387164bab8633b119dea63, type: 3}
+  - {fileID: 4120292668498991773, guid: d4b53452ec997c7448cd49cdbf95bba5, type: 3}
   - {fileID: 4120292668498991773, guid: 4860c37ce73df9b4e92bf5843bfdd04b, type: 3}
   _distancePositionY: 0.5
 --- !u!1001 &1866984311
