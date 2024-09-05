@@ -41,12 +41,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private BallsSpawner _ballsSpawner;
     [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private TextMeshProUGUI _bonusCountText;
-    [SerializeField] private int _bonusCountMax;
     [SerializeField] private int _ballCountMinForStar;
     [SerializeField] private RectTransform[] _stars;
 
     private bool _isPause;
     private int _bonusCountCurrent;
+    private int _bonusCountMax;
     private int _starsCount;
     private int _ballCountCurrent;
     private void Awake()
@@ -55,8 +55,7 @@ public class UIManager : MonoBehaviour
         BallTriggerLogic.WinGame += WinGame;
         _ballsSpawner.LoseGame += LoseGame;
         _ballsSpawner.CountBall += BallCount;
-
-        BonusCount();
+        BonusCountOnLVL.BonusOnLVL += BonusCountLVL;
     }
     private void OnEnable()
     {
@@ -163,6 +162,11 @@ public class UIManager : MonoBehaviour
     {
         _screenLose.gameObject.SetActive(true);
         Time.timeScale = 0f;
+    }
+    private void BonusCountLVL()
+    {
+        _bonusCountMax++;
+        BonusCount();
     }
     private void BonusCount()
     {

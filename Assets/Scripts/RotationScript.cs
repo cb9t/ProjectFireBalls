@@ -28,4 +28,6 @@ public class RotationScript : MonoBehaviour
     {
         gameObject.transform.Rotate(_rotation);
     }
+    public void SetSpeed(float speed)
+        { _speed = speed; } 
 }
